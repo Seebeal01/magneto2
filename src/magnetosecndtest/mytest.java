@@ -13,7 +13,7 @@ public class mytest extends Parameters {
 
 	}
 
-	@Test
+	@Test(priority = 1)
 	public void CreateAnAccount() {
 		driver.findElement(By.partialLinkText("Create an Account")).click();
 		WebElement FirstNameInput = driver.findElement(By.id("firstname"));
@@ -31,6 +31,21 @@ public class mytest extends Parameters {
 		passwarconfirmInput.sendKeys(passward);
 		createButton.click();
 		emailAddressToLogin = firstname + lastname + RandomNamber + domainName;
+		driver.get(logoutPage);
+	}
+
+	@Test(priority = 2)
+	public void LogIn() {
+
+		WebElement LoginPage = driver.findElement(By.linkText("Sign In"));
+		LoginPage.click();
+
+		WebElement emailToLogin = driver.findElement(By.id("email"));
+		WebElement passwardToLogin = driver.findElement(By.id("pass"));
+		WebElement singinButton = driver.findElement(By.cssSelector(".action.login.primary"));
+		emailToLogin.sendKeys(emailAddressToLogin);
+		passwardToLogin.sendKeys(passward);
+		singinButton.click();
 	}
 
 }

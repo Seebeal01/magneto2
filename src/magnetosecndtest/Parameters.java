@@ -15,12 +15,13 @@ public class Parameters {
 	String domainName = "@gmail.com";
 	String passward = "Seebeal123";
 	String emailAddressToLogin = "";
-
+	String logoutPage = "https://magento.softwaretestingboard.com/customer/account/logout/";
 	
 	
 	public void GeneralSetup() {
 		driver.manage().window().maximize();
 		driver.get(magentoUrl);
+		
 		
 	
 	
